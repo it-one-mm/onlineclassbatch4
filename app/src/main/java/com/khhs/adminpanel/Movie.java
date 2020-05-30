@@ -168,7 +168,7 @@ public class Movie extends BottomSheetDialogFragment {
                    if(isEp.isChecked())
                    {
                        EpisodeModel model = new EpisodeModel();
-                       SimpleDateFormat format = new SimpleDateFormat("ddMMyyyyhhmmss");
+                       SimpleDateFormat format = new SimpleDateFormat("ddMMyyyyHHmmss");
                        model.createdAt = format.format(new Date());
                        model.episodeName = edtname.getText().toString().trim();
                        model.episodeSeries = seriesnames.get(spSeries.getSelectedItemPosition());
@@ -191,7 +191,7 @@ public class Movie extends BottomSheetDialogFragment {
                    {
 
                        MovieModel model = new MovieModel();
-                       SimpleDateFormat format = new SimpleDateFormat("ddMMyyyyhhmmss");
+                       SimpleDateFormat format = new SimpleDateFormat("ddMMyyyyHHmmss");
                        model.createdAt = format.format(new Date());
                        model.movieName = edtname.getText().toString().trim();
                        model.movieCategory = categorynames.get(spCategory.getSelectedItemPosition());
@@ -199,6 +199,7 @@ public class Movie extends BottomSheetDialogFragment {
                        model.movieImage = edtimage.getText().toString().trim();
                       if(edit_movieModel!=null)
                       {
+
                           movieRef.document(id).set(model);
                           Toasty.success(getContext(),"Movie Update Successfully",Toasty.LENGTH_LONG).show();
                         edit_movieModel = null;
